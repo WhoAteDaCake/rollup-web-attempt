@@ -17,6 +17,7 @@ const babelConf = require('./babel.config');
 export default {
 	input: 'src/main.ts',
 	output: {
+		name: 'bundle.js',
 		file: 'public/bundle.js',
 		format: 'iife', // immediately-invoked function expression — suitable for <script> tags
 		sourcemap: true
@@ -34,7 +35,8 @@ export default {
 		resolve(), // tells Rollup how to find date-fns in node_modules
 		babel({ babelHelpers: 'bundled',  exclude: 'node_modules/**', ...babelConf }),
 		commonjs({
-			namedExports
+			namedExports,
+			extensions: ['.js', '.ts', '.tsx']
 		}), // converts date-fns to ES modules
 		production && terser() // minify, but only in production
 	]
