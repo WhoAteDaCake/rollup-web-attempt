@@ -8,6 +8,7 @@
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-json": "^4.0.3",
     "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-typescript": "^4.1.1",
     "antd": "^4.2.0",
     "indexof": "^0.0.1",
     "less": "^3.11.1",
@@ -20,7 +21,9 @@
     "rollup": "^1.16.2",
     "rollup-plugin-postcss": "^3.1.1",
     "rollup-plugin-terser": "^5.0.0",
-    "serve": "^11.0.2"
+    "serve": "^11.0.2",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "date-fns": "^1.30.1"
@@ -29,6 +32,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel start watch",
-    "start": "serve public"
+    "start": "serve public",
+    "build:ts": "tsc"
   }
 }

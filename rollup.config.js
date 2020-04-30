@@ -4,6 +4,8 @@ import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
+import typescript from '@rollup/plugin-typescript';
+
 import { namedExports } from './namedExports'
 
 // `npm run build` -> `production` is true
@@ -13,7 +15,7 @@ const production = !process.env.ROLLUP_WATCH;
 const babelConf = require('./babel.config');
 
 export default {
-	input: 'src/main.js',
+	input: 'src/main.ts',
 	output: {
 		file: 'public/bundle.js',
 		format: 'iife', // immediately-invoked function expression — suitable for <script> tags
@@ -24,6 +26,10 @@ export default {
 		postcss({
 			extract: true,
 			use: [['less', {javascriptEnabled: true, paths: ['./node_modules', './src']}]]
+		}),
+		typescript({
+			typescript: require('typescript'),
+			tslib: require.resolve('tslib')
 		}),
 		resolve(), // tells Rollup how to find date-fns in node_modules
 		babel({ babelHelpers: 'bundled',  exclude: 'node_modules/**', ...babelConf }),

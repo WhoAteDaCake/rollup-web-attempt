@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "jsx": "react",
+    "target": "ES5",
+    "lib": ["es6", "dom", "es2017"],
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    // "outDir": "compiled",
+    "strict": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "downlevelIteration": true,
+    "paths": {
+      "@root/*": ["src/*"]
+    }
+  },
+  "include": ["src"]
+}

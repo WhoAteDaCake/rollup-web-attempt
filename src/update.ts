@@ -1,6 +1,6 @@
 import format from 'date-fns/format';
 
-var span = document.querySelector('#time-now');
+var span = document.querySelector('#time-now') as HTMLElement;
 
 export default function update() {
 	const date = new Date();
