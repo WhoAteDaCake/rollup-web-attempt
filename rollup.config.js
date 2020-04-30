@@ -19,7 +19,7 @@ export default {
 	output: {
 		name: 'bundle.js',
 		file: 'public/bundle.js',
-		format: 'iife', // immediately-invoked function expression — suitable for <script> tags
+		format: 'esm', // immediately-invoked function expression — suitable for <script> tags
 		sourcemap: true
 	},
 	plugins: [
@@ -38,6 +38,6 @@ export default {
 			namedExports,
 			extensions: ['.js', '.ts', '.tsx']
 		}), // converts date-fns to ES modules
-		production && terser() // minify, but only in production
+		// production && terser() // minify, but only in production
 	]
 };
